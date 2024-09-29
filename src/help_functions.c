@@ -1,4 +1,4 @@
-#include "decimal.h"
+#include "s21_decimal.h"
 
 /* Return value:
  * -1 -> error
@@ -255,7 +255,7 @@ int s21_decimal_print(s21_decimal dst, char* src) {
         if (i > scale) {
           str_rev[i] = str_rev[i - 1];
         } else if (i == scale) {
-          str_rev[i] = '.' - 48;  // чтобы в итоге получить '.'
+          str_rev[i] = '.' - 48;  //чтобы в итоге получить '.'
         }
       }
     } else if (scale == -1) {
@@ -275,7 +275,7 @@ int s21_decimal_print(s21_decimal dst, char* src) {
       if (i > 29 + point - n + bit_127) {
         src[i] = '\0';
       } else if (i <= 29 + point - n + bit_127) {
-        src[i] = str_rev[29 + point - n - i + bit_127] + 48;  // см. ASCII
+        src[i] = str_rev[29 + point - n - i + bit_127] + 48;  //см. ASCII
       }
       if (bit_127 == 1) {
         src[0] = '-';
